@@ -10,7 +10,7 @@ app.get('/', function (req, res) { return res.send('Forescout Blog API'); });
 app.get('/posts', function (req, res) { return res.send(posts); });
 app.get('/posts/:id', function (req, res) {
     if (!posts[req.params.id])
-        res.status(404).send('Incorrect ID or post has been deleted.');
+        res.status(404).send('Incorrect ID or post has been deleted already.');
     else
         res.send(posts[req.params.id]);
 });
@@ -25,7 +25,7 @@ app.post('/posts', function (req, res) {
 });
 app.delete('/posts/:id', function (req, res) {
     if (!posts[req.params.id])
-        res.status(404).send('Incorrect ID or post has been deleted.');
+        res.status(404).send('Incorrect ID or post has been deleted already.');
     else {
         posts.splice(req.params.id, 1);
         res.send('Successfully deleted.');
