@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var posts = require('../data/posts.json');
 var app = express();
-var port = 3000;
+var port = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.get('/', function (req, res) { return res.send('Forescout Blog API'); });
